@@ -1,0 +1,17 @@
+<%= simple_form_for(@actionable) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :student_requested_job %>
+    <%= f.input :employeer_requested_student_for_job %>
+    <%= f.input :student_approved_for_job %>
+    <%= f.input :appeared_at_job %>
+    <%= f.input :student_did_job_well %>
+    <%= f.association :job %>
+    <%= f.association :student %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

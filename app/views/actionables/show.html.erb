@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student requested job:</strong>
+  <%= @actionable.student_requested_job %>
+</p>
+
+<p>
+  <strong>Employeer requested student for job:</strong>
+  <%= @actionable.employeer_requested_student_for_job %>
+</p>
+
+<p>
+  <strong>Student approved for job:</strong>
+  <%= @actionable.student_approved_for_job %>
+</p>
+
+<p>
+  <strong>Appeared at job:</strong>
+  <%= @actionable.appeared_at_job %>
+</p>
+
+<p>
+  <strong>Student did job well:</strong>
+  <%= @actionable.student_did_job_well %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @actionable.job %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @actionable.student %>
+</p>
+
+<%= link_to 'Edit', edit_actionable_path(@actionable) %> |
+<%= link_to 'Back', actionables_path %>

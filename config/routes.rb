@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :actionables
+
   resources :jobs
 
   resources :businesses
