@@ -1,4 +1,5 @@
 ActiveAdmin.register Skill do
+  permit_params :skill_name
 
 
   # See permitted parameters documentation:
