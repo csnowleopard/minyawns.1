@@ -1,4 +1,5 @@
 ActiveAdmin.register Business do
+  permit_params :name, :address, :website, :about
 
 
   # See permitted parameters documentation:
