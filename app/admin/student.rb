@@ -1,4 +1,5 @@
 ActiveAdmin.register Student do
+  permit_params :first_name, :last_name, :college, :major, :linkedin, :facebook
 
 
   # See permitted parameters documentation:
