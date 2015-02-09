@@ -1,4 +1,5 @@
 ActiveAdmin.register Job do
+  permit_params :name, :starting_date, :starting_time, :ending_date, :ending_time, :location, :wage, :num_minyawns, :description
 
 
   # See permitted parameters documentation:
