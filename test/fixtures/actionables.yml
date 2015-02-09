@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_requested_job: false
+  employeer_requested_student_for_job: false
+  student_approved_for_job: false
+  appeared_at_job: false
+  student_did_job_well: false
+  job_id: 
+  student_id: 
+
+two:
+  student_requested_job: false
+  employeer_requested_student_for_job: false
+  student_approved_for_job: false
+  appeared_at_job: false
+  student_did_job_well: false
+  job_id: 
+  student_id: 
