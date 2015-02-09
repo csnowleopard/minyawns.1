@@ -1,6 +1,5 @@
-<h1>Editing actionable</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @actionable %> |
-<%= link_to 'Back', actionables_path %>
+<%- model_class = Actionable -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Actionable %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -1,39 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Actionable -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Actionable %></h1>
+</div>
 
-<p>
-  <strong>Student requested job:</strong>
-  <%= @actionable.student_requested_job %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:student_requested_job) %></dt>
+      <dd><pre class="prettyprint"><%= @actionable.student_requested_job %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:employeer_requested_student_for_job) %></dt>
+      <dd><pre class="prettyprint"><%= @actionable.employeer_requested_student_for_job %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:student_approved_for_job) %></dt>
+      <dd><pre class="prettyprint"><%= @actionable.student_approved_for_job %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:appeared_at_job) %></dt>
+      <dd><pre class="prettyprint"><%= @actionable.appeared_at_job %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:student_did_job_well) %></dt>
+      <dd><pre class="prettyprint"><%= @actionable.student_did_job_well %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Employeer requested student for job:</strong>
-  <%= @actionable.employeer_requested_student_for_job %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              actionables_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_actionable_path(@actionable), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              actionable_path(@actionable),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Student approved for job:</strong>
-  <%= @actionable.student_approved_for_job %>
-</p>
-
-<p>
-  <strong>Appeared at job:</strong>
-  <%= @actionable.appeared_at_job %>
-</p>
-
-<p>
-  <strong>Student did job well:</strong>
-  <%= @actionable.student_did_job_well %>
-</p>
-
-<p>
-  <strong>Job:</strong>
-  <%= @actionable.job %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @actionable.student %>
-</p>
-
-<%= link_to 'Edit', edit_actionable_path(@actionable) %> |
-<%= link_to 'Back', actionables_path %>

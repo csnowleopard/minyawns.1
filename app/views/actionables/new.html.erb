@@ -1,5 +1,6 @@
-<h1>New actionable</h1>
+<%- model_class = Actionable -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => Actionable %></h1>
+</div>
+<%= render :partial => 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', actionables_path %>

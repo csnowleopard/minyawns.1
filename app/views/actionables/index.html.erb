@@ -1,37 +1,44 @@
-<h1>Listing actionables</h1>
-
-<table>
+<%- model_class = Actionable -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Actionable %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Student requested job</th>
-      <th>Employeer requested student for job</th>
-      <th>Student approved for job</th>
-      <th>Appeared at job</th>
-      <th>Student did job well</th>
-      <th>Job</th>
-      <th>Student</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:student_requested_job) %></th>
+      <th><%= model_class.human_attribute_name(:employeer_requested_student_for_job) %></th>
+      <th><%= model_class.human_attribute_name(:student_approved_for_job) %></th>
+      <th><%= model_class.human_attribute_name(:appeared_at_job) %></th>
+      <th><%= model_class.human_attribute_name(:student_did_job_well) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @actionables.each do |actionable| %>
       <tr>
+        <td><%= actionable.id %></td>
         <td><%= actionable.student_requested_job %></td>
         <td><%= actionable.employeer_requested_student_for_job %></td>
         <td><%= actionable.student_approved_for_job %></td>
         <td><%= actionable.appeared_at_job %></td>
         <td><%= actionable.student_did_job_well %></td>
-        <td><%= actionable.job %></td>
-        <td><%= actionable.student %></td>
-        <td><%= link_to 'Show', actionable %></td>
-        <td><%= link_to 'Edit', edit_actionable_path(actionable) %></td>
-        <td><%= link_to 'Destroy', actionable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l actionable.created_at, format: :long %></td>
+        <td>
+          <%= link_to actionable_path(actionable), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to actionable_path(actionable), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Actionable', new_actionable_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_actionable_path,
+            :class => 'btn btn-primary' %>
