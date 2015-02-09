@@ -1,20 +1,64 @@
-<%= simple_form_for(@job) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :starting_date %>
-    <%= f.input :starting_time %>
-    <%= f.input :ending_date %>
-    <%= f.input :ending_time %>
-    <%= f.input :location %>
-    <%= f.input :wage %>
-    <%= f.input :num_minyawns %>
-    <%= f.input :description %>
-    <%= f.association :business %>
+<%= form_for @job, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :starting_date, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :starting_date, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :starting_time, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :starting_time, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ending_date, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :ending_date, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ending_time, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :ending_time, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :location, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :location, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :wage, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :wage, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :num_minyawns, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :num_minyawns, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  jobs_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

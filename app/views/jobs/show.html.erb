@@ -1,54 +1,40 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Job -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Job %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @job.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @job.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:starting_date) %></dt>
+      <dd><pre class="prettyprint"><%= @job.starting_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:starting_time) %></dt>
+      <dd><pre class="prettyprint"><%= @job.starting_time %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ending_date) %></dt>
+      <dd><pre class="prettyprint"><%= @job.ending_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ending_time) %></dt>
+      <dd><pre class="prettyprint"><%= @job.ending_time %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:location) %></dt>
+      <dd><pre class="prettyprint"><%= @job.location %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:wage) %></dt>
+      <dd><pre class="prettyprint"><%= @job.wage %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:num_minyawns) %></dt>
+      <dd><pre class="prettyprint"><%= @job.num_minyawns %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @job.description %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Starting date:</strong>
-  <%= @job.starting_date %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              jobs_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_job_path(@job), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              job_path(@job),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Starting time:</strong>
-  <%= @job.starting_time %>
-</p>
-
-<p>
-  <strong>Ending date:</strong>
-  <%= @job.ending_date %>
-</p>
-
-<p>
-  <strong>Ending time:</strong>
-  <%= @job.ending_time %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @job.location %>
-</p>
-
-<p>
-  <strong>Wage:</strong>
-  <%= @job.wage %>
-</p>
-
-<p>
-  <strong>Num minyawns:</strong>
-  <%= @job.num_minyawns %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
-
-<p>
-  <strong>Business:</strong>
-  <%= @job.business %>
-</p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
