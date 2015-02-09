@@ -1,0 +1,20 @@
+<%= simple_form_for(@job) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :starting_date %>
+    <%= f.input :starting_time %>
+    <%= f.input :ending_date %>
+    <%= f.input :ending_time %>
+    <%= f.input :location %>
+    <%= f.input :wage %>
+    <%= f.input :num_minyawns %>
+    <%= f.input :description %>
+    <%= f.association :business %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
